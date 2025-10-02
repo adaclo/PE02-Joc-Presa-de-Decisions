@@ -15,6 +15,7 @@ public class PE02_AcarretaAdrian {
         boolean hungry = false;
         boolean wounds = false;
         boolean sick = false;
+        boolean dead = false;
         String var;
         Scanner e = new Scanner(System.in);
 
@@ -132,7 +133,7 @@ public class PE02_AcarretaAdrian {
         System.out.println("");
         System.out.println("(#) Arribes al búnquer i ordenes totes les coses que has agafat, ja era una mica tard així que decideixes anar-te'n a dormir...");
         if (pillow) {
-            System.out.println("(=) Dorms molt còmode");
+            System.out.println("(=) Dorms molt còmode amb el teu coixí");
         }
         System.out.println("");
 
@@ -148,7 +149,7 @@ public class PE02_AcarretaAdrian {
         switch (var) {
             case "si","SI","Si","sI":
                 if (knife) {
-                    System.out.println("(=) Obres la llauna de cigrons amb tomàquet sense problemes");
+                    System.out.println("(=) Obres la llauna de cigrons amb tomàquet utilitzant el teu ganivet sense problemes");
                 } else {
                     System.out.println("(=) Aconsegueixes obrir la llauna de cigrons, però et fas una ferida");
                     if (medkit) {
@@ -186,5 +187,117 @@ public class PE02_AcarretaAdrian {
                 System.out.println("");
                 break;
         }
+        System.out.println("");
+        if (pillow) {
+            System.out.println("(=) Dorms molt còmode amb el teu coixí");
+        }
+        System.out.println("");
+        System.out.println("-----------------");
+        System.out.println("----- DIA 2 -----");
+        System.out.println("-----------------");
+        System.out.println("");
+
+        if (hungry){
+            System.out.println("(#) T'aixeques amb molta gana");
+            System.out.println("(?) Vols menjar?");
+            System.out.println("    (Si) // (No)");
+            var = e.next();
+            System.out.println("");
+            switch (var) {
+                case "si","SI","Si","sI":
+                    if (knife) {
+                        System.out.println("(=) Obres la llauna de cigrons amb tomàquet sense problemes");
+                    } else {
+                        System.out.println("(=) Aconsegueixes obrir la llauna de cigrons, però et fas una ferida");
+                        if (medkit) {
+                            System.out.println("(?) Vols utilitzar la farmaciola per curar-te la ferida?");
+                            System.out.println("                    (Si) // (No)");
+                            var = e.next();
+                            System.out.println("");
+                            switch (var) {
+                                case "si","SI","Si","sI":
+                                    medkit = false;
+                                    System.out.println("(-) Utilitzes la farmaciola i et cures la ferida");
+                                    break;
+                                case "no","NO","No","nO":
+                                    wounds = true;
+                                    System.out.println("(=) La ferida se t'infecta...");
+                                    break;
+                                default:
+                                    System.out.println("");
+                                    System.err.println("(!) Valor introduït invàlid");
+                                    System.out.println("");
+                                    break;
+                            }
+                        }
+                    }
+                    hungry = false;
+                    System.out.println("(=) Menges i et sacies");
+                    break;
+                case "no","NO","No","nO":
+                    hungry = true;
+                    System.out.println("(=) Decideixes no menjar avui...");
+                    break;
+                default:
+                    System.out.println("");
+                    System.err.println("(!) Valor introduït invàlid");
+                    System.out.println("");
+                    break;
+            }
+        }
+        System.out.println("");
+        System.out.println("(#) Sents un soroll fora del búnquer i de cop et piquen a la porta");
+        System.out.println("(#) Sospites que poden ser reforços buscant supervivents");
+        System.err.println("(?) Vols obrir la porta?");
+        System.out.println("       (Si) // (No)");
+        var = e.next();
+        switch (var) {
+            case "si","SI","Si","sI":
+                System.out.println("(=) Decideixes obrir la porta i són dos lladres que volen fer-se amb el teu búnquer");
+                System.out.println("");
+                if (shotgun) {
+                    System.out.println("(=) Només tens una bala a la escopeta i li dones a un dels dos, però l'altre et fa una ferida mentre intentes tancar la porta");
+                    if (medkit) {
+                            System.out.println("(?) Vols utilitzar la farmaciola per curar-te la ferida?");
+                            System.out.println("                    (Si) // (No)");
+                            var = e.next();
+                            System.out.println("");
+                            switch (var) {
+                                case "si","SI","Si","sI":
+                                    medkit = false;
+                                    System.out.println("(-) Utilitzes la farmaciola i et cures la ferida");
+                                    break;
+                                case "no","NO","No","nO":
+                                    wounds = true;
+                                    System.out.println("(=) La ferida se t'infecta...");
+                                    break;
+                                default:
+                                    System.out.println("");
+                                    System.err.println("(!) Valor introduït invàlid");
+                                    System.out.println("");
+                                    break;
+                            }
+                        }
+                } else {
+                    System.out.println("(#) Lluites amb ells, però com són dues persones acaben guanyant i et fan fora del teu búnquer");
+                    System.out.println("(^) Vagues pel teu antic barri destruït sense rumb fins a desmaiar-te");
+                    dead = true;
+                }
+                break;
+            case "no","NO","No","nO":
+                if (alarmClock) {
+                    System.out.println("(=) Saps quina hora és gràcies al rellotge així que pots comptar quant portes a dins");
+                } else {
+                    System.out.println("(=) Com no has obert no saps quina hora és perds la percepció del temps");
+                    paranoia = true;
+                }
+                break;
+            default:
+                System.out.println("");
+                System.err.println("(!) Valor introduït invàlid");
+                System.out.println("");
+                break;
+        }
+        
     }
 }
