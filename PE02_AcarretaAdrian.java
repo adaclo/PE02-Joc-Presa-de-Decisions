@@ -281,7 +281,7 @@ public class PE02_AcarretaAdrian {
                         }
                 } else {
                     System.out.println("(#) Lluites amb ells, però com són dues persones acaben guanyant i et fan fora del teu búnquer");
-                    System.out.println("(^) Vagues pel teu antic barri destruït sense rumb fins a desmaiar-te");
+                    System.out.println("(^) Vagues pel teu antic barri destruït sense rumb fins a desmaiar-te (1/10)");
                     dead = true;
                 }
                 break;
@@ -312,14 +312,14 @@ public class PE02_AcarretaAdrian {
 
             //FINALS I ÚLTIMA DECISIÓ
             if (hungry) {
-                System.out.println("(^) El tercer dia t'aixeques i comences a perdre la consciència i les forces, mors d'inanició");
+                System.out.println("(^) El tercer dia t'aixeques i comences a perdre la consciència i les forces, mors d'inanició (2/10)");
             } else {
                 if (sick) {
                     if (medkit) {
                         System.out.println("(#) Et trobes una mica malament per la radiació");
                         System.out.println("(-) Utilitzes la teva farmaciola per curar-te");
                     } else {
-                        System.out.println("(^) Caus malalt per la radiació i com no tens farmaciola acabes morint...");
+                        System.out.println("(^) Caus malalt per la radiació i com no tens farmaciola acabes morint... (3/10)");
                         dead=true;
                     }
                 }
@@ -334,26 +334,30 @@ public class PE02_AcarretaAdrian {
                         switch (var) {
                             case "si","SI","Si","sI":
                                 if (paranoia) {
-                                    System.out.println("(^) Decideixes sortir del búnquer per anar a la trobada, però ja que has perdut la percepció del temps t'acabes perdent");
+                                    System.out.println("(^) Decideixes sortir del búnquer per anar a la trobada, però ja que has perdut la percepció del temps t'acabes perdent (4/10)");
                                     dead=true;
                                 } else {
-                                    System.out.println("(^) Decideixes sortir del búnquer per anar a la trobada, a l'arribar et trobes amb molts supervivents col·laborant entre ells");
+                                    System.out.println("(^) Decideixes sortir del búnquer per anar a la trobada, a l'arribar et trobes amb molts supervivents col·laborant entre ells (5/10)");
                                 }
                                 break;
                             case "no","NO","No","nO":
                                 if (wounds) {
                                     if (pillow) {
                                         System.out.println("(#) Trenques el teu coixí per utilitzar-lo com vendes i et cures les ferides");
-                                        System.out.println("(^) Passen uns quants dies i arriba un equip de rescatistes per rescatar-te");
+                                        System.out.println("(^) Passen uns quants dies i arriba un equip de rescatistes per rescatar-te (6/10)");
                                     } else {
-                                        System.out.println("(^) Les teves ferides empitjoren durant els dies fins que acabes morint");
+                                        System.out.println("(^) Les teves ferides empitjoren durant els dies fins que acabes morint (7/10)");
                                     }
                                 } else {
                                     if (paranoia) {
                                         System.out.println("(#) Decideixes quedar-te al búnquer, però aquelles quatre parets et comencen a tornar boig");
-                                        System.out.println("(^) Arriba un equip de rescatistes, però estàs tan malament que no pots obrir-los la porta");
+                                        if (shotgun) {
+                                            System.out.println("(^) Arriba un equip de rescatistes, però estàs tan malament que utilitzes la teva escopeta per matar-los, estàs boig... (10/10)");    
+                                        } else {
+                                            System.out.println("(^) Arriba un equip de rescatistes, però estàs tan malament que no pots obrir-los la porta (8/10)");
+                                        }
                                     } else {
-                                        System.out.println("(^) Decideixes quedar-te al teu búnquer i als dies arriba un equip de rescatistes, sobreviveixes!");
+                                        System.out.println("(^) Decideixes quedar-te al teu búnquer i als dies arriba un equip de rescatistes, sobreviveixes! (9/10)");
                                     }
                                 }
                                 break;
@@ -369,23 +373,27 @@ public class PE02_AcarretaAdrian {
                                     System.out.println("(-) Trenques el teu coixí per utilitzar-lo com vendes i et cures les ferides");
                                 if (paranoia) {
                                     System.out.println("(#) Decideixes quedar-te al búnquer, però aquelles quatre parets et comencen a tornar boig");
-                                    if(shotgun) {
-                                        System.out.println("(^) Arriba un equip de rescatistes, però estàs tan malament que utilitzes la teva escopeta per matar-los, estàs boig...");    
+                                    if (shotgun) {
+                                        System.out.println("(^) Arriba un equip de rescatistes, però estàs tan malament que utilitzes la teva escopeta per matar-los, estàs boig... (10/10)");    
                                     } else {
-                                        System.out.println("(^) Arriba un equip de rescatistes, però estàs tan malament que no pots obrir-los la porta");
+                                        System.out.println("(^) Arriba un equip de rescatistes, però estàs tan malament que no pots obrir-los la porta (8/10)");
                                     }
                                 } else {
-                                    System.out.println("(^) Passen uns quants dies i arriba un equip de rescatistes per rescatar-te");
+                                    System.out.println("(^) Passen uns quants dies i arriba un equip de rescatistes per rescatar-te (6/10)");
                                 }
                             } else {
-                                System.out.println("(^) Les teves ferides empitjoren durant els dies fins que acabes morint");
+                                System.out.println("(^) Les teves ferides empitjoren durant els dies fins que acabes morint (7/10)");
                             }
                         } else {
                             if (paranoia) {
                                 System.out.println("(#) Decideixes quedar-te al búnquer, però aquelles quatre parets et comencen a tornar boig");
-                                System.out.println("(^) Arriba un equip de rescatistes, però estàs tan malament que no pots obrir-los la porta");
+                                if (shotgun) {
+                                    System.out.println("(^) Arriba un equip de rescatistes, però estàs tan malament que utilitzes la teva escopeta per matar-los, estàs boig... (10/10)");    
+                                } else {
+                                    System.out.println("(^) Arriba un equip de rescatistes, però estàs tan malament que no pots obrir-los la porta (8/10)");
+                                }
                             } else {
-                                System.out.println("(^) Decideixes quedar-te al teu búnquer i als dies arriba un equip de rescatistes, sobreviveixes!");
+                                System.out.println("(^) Decideixes quedar-te al teu búnquer i als dies arriba un equip de rescatistes, sobreviveixes! (9/10)");
                             }
                         }
                     }
